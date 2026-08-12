@@ -1,6 +1,9 @@
 {
   "title": "Truth .",
   "description": "Showcase your work and skills with a professional portfolio website designed for creatives and professionals to attract clients and opportunities.",
+  "icons": {
+    "icon": "/LOGO (11).png"
+  },
   "robots": {
     "index": false
   },
