@@ -428,7 +428,7 @@ const galleryProjects = [
     title: 'Character Design',
     accentColor: '#EF951C',
     desc: "This project demonstrates my ability to translate user personalities and brand values into a tangible, visually compelling asset. Character design requires the same deep empathy and storytelling skills as defining a user's journey.",
-    link: 'https://www.figma.com',   
+    link: 'https://www.linkedin.com/posts/truthdottt_characterdesign-digitalart-uiux-activity-7432731206397399040-SUxU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFC14woByBOg5flFDxSpyrMyVj4H6XH1d5M',   
   },
   {
     img: proj2,
