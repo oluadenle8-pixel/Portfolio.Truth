@@ -435,14 +435,14 @@ const galleryProjects = [
     title: 'Space Explorer',
     accentColor: '#C1E7FF',
     desc: 'A mobile app UI design for an interactive space exploration learning platform, combining astronomy data with an immersive user experience.',
-    link: 'https://www.figma.com',  
+    link: 'https://www.figma.com/proto/aN5z7BTWjnahkgQ1zaU0pO/Space-Explorer?node-id=2105-4&p=f&t=ZHsWNKy4lJ6lzQNR-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2105%3A4',  
   },
   {
     img: proj3,
     title: 'Nike App',
     accentColor: '#aaaaaa',
     desc: 'An e-commerce app redesign for Nike focusing on product showcase, clean navigation, and a premium brand experience for sneaker enthusiasts.',
-    link: 'https://www.figma.com',  
+    link: 'https://www.figma.com/proto/21bc6UgNRg1Ok5Bd9QoN7h/Nike-Airforce-Design?node-id=155-71&t=BZsTE9ifCwqZGuWB-0&scaling=scale-down&content-scaling=fixed&page-id=155%3A4',  
   }
 ]
 
