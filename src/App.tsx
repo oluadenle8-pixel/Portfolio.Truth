@@ -9,37 +9,27 @@ import iconBusiness from '@/imports/Frame_4__1_.png'
 import iconApp from '@/imports/Group.png'
 import iconSEO from '@/imports/Group_6__2_.png'
 import iconUX from '@/imports/Vector__5_.png'
-import proj1 from '@/imports/Project_1.png'
-import proj2 from '@/imports/Project_2.png'
-import proj3 from '@/imports/Project_3.png'
 import projDropDown from '@/imports/Project_Drop_Down.png'
 import vector10 from '@/imports/Vector 10.png'
-
-
+import { allProjectsData } from './projectsData'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import AllProjectsPage from './AllProjectsPage'
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <nav className="absolute top-[60px] left-0 right-0 z-50 px-6 md:px-12 flex justify-center">
-      
-      {/* Desktop Pill - Centered with strict 3-zone layout */}
       <div className="hidden lg:flex items-center w-full max-w-[1200px] h-[80px] px-[50px] rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.07)]"
         style={{ backgroundColor: '#cde8f5' }}>
-        
-        {/* Left Zone - flex-1 forces it to take up exactly half the remaining space */}
         <div className="flex-1 flex justify-between items-center pr-12 xl:pr-16">
           <a href="#home" style={{ fontFamily: 'Poppins, sans-serif', color: '#131C23', fontWeight: 500, fontSize: '18px' }} className="hover:text-[#EF951C] transition-colors">Home</a>
           <a href="#about" style={{ fontFamily: 'Poppins, sans-serif', color: '#131C23', fontWeight: 500, fontSize: '18px' }} className="hover:text-[#EF951C] transition-colors">About</a>
           <a href="#services" style={{ fontFamily: 'Poppins, sans-serif', color: '#131C23', fontWeight: 500, fontSize: '18px' }} className="hover:text-[#EF951C] transition-colors">Services</a>
         </div>
-        
-        {/* Center Logo - shrink-0 ensures it is never squished by the text */}
         <a href="#home" className="shrink-0 flex items-center justify-center hover:scale-105 transition-transform">
           <img src={logoImg} alt="Truth logo" className="h-[55px] w-auto object-contain" />
         </a>
-        
-        {/* Right Zone - flex-1 balances the left zone perfectly */}
         <div className="flex-1 flex justify-between items-center pl-12 xl:pl-16">
           <a href="#projects-gallery" style={{ fontFamily: 'Poppins, sans-serif', color: '#131C23', fontWeight: 500, fontSize: '18px' }} className="hover:text-[#EF951C] transition-colors">Projects Gallery</a>
           <a href="#resume" style={{ fontFamily: 'Poppins, sans-serif', color: '#131C23', fontWeight: 500, fontSize: '18px' }} className="hover:text-[#EF951C] transition-colors">Resume</a>
@@ -47,7 +37,6 @@ function NavBar() {
         </div>
       </div>
 
-      {/* Mobile Pill (Kept responsive) */}
       <div className="lg:hidden flex items-center justify-between w-full px-6 py-4 rounded-full shadow-sm"
         style={{ backgroundColor: '#cde8f5' }}>
         <img src={logoImg} alt="Truth logo" className="h-8 w-auto object-contain" />
@@ -58,7 +47,6 @@ function NavBar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="lg:hidden absolute top-[120%] w-[calc(100%-3rem)] px-6 py-4 rounded-2xl flex flex-col gap-2 shadow-lg"
           style={{ backgroundColor: '#cde8f5' }}>
@@ -70,7 +58,6 @@ function NavBar() {
           ))}
         </div>
       )}
-      
     </nav>
   )
 }
@@ -79,11 +66,7 @@ function HeroSection() {
   return (
     <section id="home" style={{ backgroundColor: '#ffffff' }} className="pt-[160px] lg:pt-[200px] pb-20 px-6 md:px-12 overflow-hidden min-h-screen flex items-center">
       <div className="max-w-[1300px] mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-        
-        {/* Left: Text Block */}
         <div className="w-full lg:w-[646px] shrink-0 z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
-          
-          {/* "Hi I am" + "TRUTH ." */}
           <div className="flex flex-wrap justify-center lg:justify-start items-baseline gap-2 mb-2">
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#515151' }} 
                   className="text-3xl sm:text-4xl lg:text-[50px] leading-none">
@@ -95,7 +78,6 @@ function HeroSection() {
             </span>
           </div>
 
-          {/* Mobile Heading Block (Stacked & Centered) */}
           <div className="flex lg:hidden flex-col items-center text-center mb-8 w-full">
             <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, color: '#131C23', lineHeight: 1.1 }} 
                  className="text-6xl sm:text-7xl mb-2">
@@ -107,7 +89,6 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Desktop Heading Block */}
           <div className="hidden lg:flex mb-8 w-full justify-start items-start gap-[24px]">
             <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, color: '#131C23', lineHeight: 1 }} 
                  className="text-[90px] whitespace-nowrap">
@@ -125,13 +106,11 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Body Text */}
           <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 300, color: '#515151', lineHeight: 1.6 }} 
              className="text-base sm:text-lg lg:text-[21px] mb-10 w-full lg:max-w-[646px] text-center lg:text-left">
             I create beautiful and functional digital experiences. My focus is on crafting clean, intuitive designs that enhance user engagement and drive results.
           </p>
 
-          {/* Buttons: Stacked & Centered on mobile */}
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
             <a href="#projects-gallery" className="w-full sm:w-auto flex justify-center">
               <button className="rounded-full transition-all hover:opacity-85 hover:scale-105 flex items-center justify-center w-full sm:w-[185px]"
@@ -163,7 +142,6 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Right: 3D Render Image - Hidden on mobile */}
         <div className="hidden lg:flex w-full justify-end relative">
           <img
             src={heroShape}
@@ -171,23 +149,15 @@ function HeroSection() {
             className="w-[600px] h-auto object-contain hover:-translate-y-4 transition-transform duration-500 ease-out"
           />
         </div>
-        
       </div>
     </section>
   )
 }
 
-// All vw values based on 1440px design frame
-// Container: 400×500px → 27.778vw × 34.722vw | x:60 → 4.167vw
-// Gap container→text: 183px → 12.708vw | "About Me" x:643 → 44.653vw
-// Vector: 164×13px → 11.389vw × 0.903vw
-// Body: 21px → 1.458vw, width 733px → 50.903vw
-// Bars: 730×20px → 50.694vw × 1.389vw | Labels: 25px → 1.736vw
-
 const aboutSkills = [
-  { label: 'Ux',             pct: 90, gradient: 'linear-gradient(90deg, #7a1a00 0%, #FE6D44 100%)' },
+  { label: 'Ux',            pct: 90, gradient: 'linear-gradient(90deg, #7a1a00 0%, #FE6D44 100%)' },
   { label: 'Website Design', pct: 85, gradient: 'linear-gradient(90deg, #7a3800 0%, #FA8F2D 100%)' },
-  { label: 'App Design',     pct: 80, gradient: 'linear-gradient(90deg, #0d2740 0%, #3B6EA0 100%)' },
+  { label: 'App Design',    pct: 80, gradient: 'linear-gradient(90deg, #0d2740 0%, #3B6EA0 100%)' },
   { label: 'Graphic Design', pct: 70, gradient: 'linear-gradient(90deg, #1e0a4a 0%, #542CA9 100%)' },
 ]
 
@@ -218,7 +188,6 @@ function AboutSection() {
       ref={sectionRef}
       className="relative w-full pt-20 pb-[180px] lg:pb-[250px] flex items-start overflow-hidden"
     >
-      {/* Background Image */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <img
           src={aboutBg}
@@ -228,10 +197,7 @@ function AboutSection() {
         />
       </div>
 
-      {/* Content Layer */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center lg:items-stretch gap-12 lg:gap-20 mt-10">
-        
-        {/* Left: Avatar Container */}
         <div 
           className="shrink-0 w-full max-w-[350px] lg:max-w-none lg:w-[400px] h-[450px] lg:h-auto rounded-[32px] flex items-end justify-center overflow-hidden mx-auto lg:mx-0 shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
           style={{ backgroundColor: '#EF951C' }}
@@ -243,10 +209,7 @@ function AboutSection() {
           />
         </div>
 
-        {/* Right: Text & Skills Block */}
         <div className="flex-1 w-full flex flex-col justify-between text-left mt-2 lg:mt-0">
-          
-          {/* Top: Heading - Centered on mobile, left-aligned on desktop */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, lineHeight: 1 }} className="text-4xl md:text-5xl mb-2">
               <span style={{ color: '#C1E7FF' }}>A</span>
@@ -260,20 +223,17 @@ function AboutSection() {
             />
           </div>
 
-          {/* Middle: Body Text */}
           <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 300, lineHeight: 1.6 }} 
              className="text-white text-base md:text-[19px] w-full text-left py-8 lg:py-4">
             As a UI/UX Designer, I believe in making a positive impact through clean, intuitive, and effective design. My work is driven by the mission to put a smile on the faces of those I design for.
           </p>
 
-          {/* Bottom: Skill Bars */}
           <div className="flex flex-col gap-6 md:gap-7 w-full">
             {aboutSkills.map((s) => (
               <div key={s.label} className="w-full flex flex-col gap-2">
                 <div>
                   <ColoredLabel text={s.label} />
                 </div>
-                
                 <div 
                   className="relative w-full h-[18px] md:h-[22px] rounded-full shadow-inner"
                   style={{ backgroundColor: '#ffffff' }}
@@ -292,17 +252,11 @@ function AboutSection() {
               </div>
             ))}
           </div>
-          
         </div>
       </div>
     </section>
   )
 }
-// vw base 1440px:
-// 70px top gap → 4.861vw | "Services" 50px → 3.472vw
-// 18px gap vector→text → 1.25vw | body 21px → 1.458vw | width 733px → 50.903vw
-// 50px gap text→cards → 3.472vw | card 300×200px → 20.833vw × 13.889vw
-// icon 40px → 2.778vw | heading 20px → 1.389vw | desc 15px → 1.042vw
 
 const serviceCards = [
   {
@@ -357,8 +311,6 @@ function ServicesSection() {
       className="pt-[60px] lg:pt-[80px] pb-[100px] lg:pb-[120px]"
     >
       <div className="max-w-[1350px] mx-auto px-6">
-        
-        {/* Header Area */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex flex-col items-center lg:items-start mb-6">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
@@ -379,7 +331,6 @@ function ServicesSection() {
           </p>
         </div>
 
-        {/* Services Cards */}
         <div className="flex flex-wrap lg:flex-nowrap justify-center gap-6 lg:gap-[30px]">
           {serviceCards.map(card => (
             <div key={card.title} 
@@ -389,13 +340,10 @@ function ServicesSection() {
                    height: '200px',
                    boxShadow: '0px 14px 15px rgba(0,0,0,0.25)' 
                  }}>
-              
               <img src={card.icon} alt={card.iconAlt} className="w-[40px] h-[40px] object-contain mb-[12px]" />
-
               <div className="mb-[10px]">
                 <ColoredWordHeading title={card.title} color={card.color} />
               </div>
-
               <p style={{ 
                     fontFamily: 'Inter, sans-serif', 
                     fontWeight: 500, 
@@ -410,50 +358,16 @@ function ServicesSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )
 }
-// vw base 1440px:
-// Cards: 400×500px → 27.778vw × 34.722vw | radius 10px → 0.694vw
-// Gap between cards: 60px → 4.167vw | side padding: 60px → 4.167vw
-// Overlay title: Montserrat Bold 35px → 2.431vw | body: Poppins Light 19px → 1.319vw
-// View btn: 140×45px → 9.722vw × 3.125vw | btn font 20px → 1.389vw
-// Arrow: 100×100px → 6.944vw
-
-const galleryProjects = [
-  {
-    img: proj1,
-    title: 'Character Design',
-    accentColor: '#EF951C',
-    desc: "This project demonstrates my ability to translate user personalities and brand values into a tangible, visually compelling asset. Character design requires the same deep empathy and storytelling skills as defining a user's journey.",
-    link: 'https://www.linkedin.com/posts/truthdottt_characterdesign-digitalart-uiux-activity-7432731206397399040-SUxU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFC14woByBOg5flFDxSpyrMyVj4H6XH1d5M',   
-  },
-  {
-    img: proj2,
-    title: 'Space Explorer',
-    accentColor: '#C1E7FF',
-    desc: 'A mobile app UI design for an interactive space exploration learning platform, combining astronomy data with an immersive user experience.',
-    link: 'https://www.figma.com/proto/aN5z7BTWjnahkgQ1zaU0pO/Space-Explorer?node-id=2105-4&p=f&t=ZHsWNKy4lJ6lzQNR-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2105%3A4',  
-  },
-  {
-    img: proj3,
-    title: 'Nike App',
-    accentColor: '#aaaaaa',
-    desc: 'An e-commerce app redesign for Nike focusing on product showcase, clean navigation, and a premium brand experience for sneaker enthusiasts.',
-    link: 'https://www.figma.com/proto/21bc6UgNRg1Ok5Bd9QoN7h/Nike-Airforce-Design?node-id=155-71&t=BZsTE9ifCwqZGuWB-0&scaling=scale-down&content-scaling=fixed&page-id=155%3A4',  
-  }
-]
 
 function ProjectsSection() {
-  // Always grab the latest 3 projects dynamically
-  const latestProjects = galleryProjects.slice(0, 3)
+  const latestProjects = allProjectsData.slice(0, 3)
 
   return (
     <section id="projects-gallery" className="relative pt-36 lg:pt-44 pb-[120px] lg:pb-[150px]">
-      
-      {/* Background Isolated and Flipped */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={aboutBg}
@@ -464,10 +378,7 @@ function ProjectsSection() {
         />
       </div>
 
-      {/* Main Content Layer */}
       <div className="relative z-10 max-w-[1350px] mx-auto px-6">
-        
-        {/* Header Area with extra top breathing room */}
         <div className="flex flex-col items-center text-center mb-16 pt-6 lg:pt-8">
           <div className="inline-flex flex-col items-center lg:items-start">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
@@ -483,23 +394,19 @@ function ProjectsSection() {
           </div>
         </div>
 
-        {/* Cards Row - Mapping over latestProjects instead of raw galleryProjects */}
         <div className="flex flex-wrap justify-center gap-[50px]">
           {latestProjects.map(project => (
-            
             <div 
               key={project.title} 
               className="relative w-full max-w-[400px] h-[500px] rounded-[10px] overflow-hidden group shrink-0"
               style={{ boxShadow: '0 10px 20px rgba(0,0,0,0.3)' }}
             >
-              {/* Background Image */}
               <img 
                 src={project.img} 
                 alt={`${project.title} project`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
               
-              {/* Mobile Overlay */}
               <div className="absolute inset-x-0 bottom-0 pt-24 pb-8 px-8 flex lg:hidden flex-col items-start justify-end bg-gradient-to-t from-black/90 via-black/50 to-transparent">
                 <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '32px', lineHeight: 1.2 }} className="mb-4 text-left">
                   {project.title.split(' ').map((word, wi) => (
@@ -530,10 +437,8 @@ function ProjectsSection() {
                 </a>
               </div>
 
-              {/* Desktop Overlay */}
               <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                    style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
-                
                 <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '35px', lineHeight: 1.2 }} className="mb-4 text-center">
                   {project.title.split(' ').map((word, wi) => (
                     <span key={wi}>
@@ -567,13 +472,11 @@ function ProjectsSection() {
                   View
                 </a>
               </div>
-
             </div>
           ))}
         </div>
       </div>
 
-      {/* The Overlapping Drop-Down Arrow Link */}
       <div className="absolute left-1/2 bottom-0 z-20" style={{ transform: 'translate(-50%, 50%)' }}>
         <a 
           href="/all-projects" 
@@ -587,7 +490,6 @@ function ProjectsSection() {
           />
         </a>
       </div>
-      
     </section>
   )
 }
@@ -596,15 +498,12 @@ function ResumeSection() {
   return (
     <section id="resume" style={{ backgroundColor: '#ffffff' }} className="pt-24 pb-20 relative">
       <div className="text-center mx-auto px-6" style={{ maxWidth: '800px' }}>
-        
-        {/* Header container: Centered on mobile, heading block stays aligned together */}
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="inline-flex flex-col items-center lg:items-start">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
               <span style={{ color: '#EF951C' }}>R</span>
               <span style={{ color: '#131C23' }}>esume</span>
             </h2>
-            
             <img 
               src={servicesVector} 
               alt="Heading underline vector" 
@@ -614,7 +513,6 @@ function ResumeSection() {
           </div>
         </div>
 
-        {/* Text Restored & Width Constrained */}
         <p className="text-center mx-auto mb-10 px-4" 
            style={{ 
              color: '#515151', 
@@ -627,7 +525,6 @@ function ResumeSection() {
           I combine technical Computer Science foundations with a deep focus on empathetic design. Grab a copy of my resume to see my full experience and technical stack.
         </p>
         
-        {/* Buttons: Stacked on mobile, side-by-side on larger screens, matching home page dimensions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <button className="rounded-full transition-all hover:opacity-85 hover:scale-105 flex items-center justify-center w-full sm:w-[180px]"
             style={{ 
@@ -654,7 +551,6 @@ function ResumeSection() {
             Download
           </button>
         </div>
-        
       </div>
     </section>
   )
@@ -676,8 +572,6 @@ function ContactSection() {
   return (
     <section id="contact" style={{ backgroundColor: '#e2ebf3' }} className="pt-20 pb-24 relative">
       <div className="max-w-2xl mx-auto px-6">
-        
-        {/* Header Area */}
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="inline-flex flex-col items-center lg:items-start">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
@@ -693,13 +587,11 @@ function ContactSection() {
           </div>
         </div>
 
-        {/* Emphatic Quote */}
         <p className="text-center mb-12 mx-auto" 
            style={{ color: '#515151', fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '19px', maxWidth: '600px' }}>
           "I don't just design screens; I solve problems with brutal honesty and empathetic logic."
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-[600px] mx-auto">
           <div>
             <label className="block text-xs md:text-sm mb-2 ml-2" style={{ color: '#515151', fontFamily: 'Poppins, sans-serif' }}>Your Name</label>
@@ -782,14 +674,6 @@ function Footer() {
   )
 }
 
-// 1. Import the routing tools at the very top of App.tsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import AllProjectsPage from './AllProjectsPage' // Import your new page
-import { link } from 'fs'
-
-// ... all your section components (NavBar, HeroSection, AboutSection, etc.) stay exactly as they are up here ...
-
-// 2. Bundle all your existing sections into a single "Home" component
 function Home() {
   return (
     <div className="relative overflow-x-hidden">
@@ -805,15 +689,11 @@ function Home() {
   )
 }
 
-// 3. Rebuild the main App function to handle the traffic
 export default function App() {
   return (
     <Router>
       <Routes>
-        {/* When the URL is exactly "/", load the Home component */}
         <Route path="/" element={<Home />} />
-        
-        {/* When the URL becomes "/all-projects", load the new page */}
         <Route path="/all-projects" element={<AllProjectsPage />} />
       </Routes>
     </Router>
