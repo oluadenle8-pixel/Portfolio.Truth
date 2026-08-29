@@ -447,6 +447,9 @@ const galleryProjects = [
 ]
 
 function ProjectsSection() {
+  // Always grab the latest 3 projects dynamically
+  const latestProjects = galleryProjects.slice(0, 3)
+
   return (
     <section id="projects-gallery" className="relative pt-36 lg:pt-44 pb-[120px] lg:pb-[150px]">
       
@@ -480,9 +483,9 @@ function ProjectsSection() {
           </div>
         </div>
 
-        {/* Cards Row */}
+        {/* Cards Row - Mapping over latestProjects instead of raw galleryProjects */}
         <div className="flex flex-wrap justify-center gap-[50px]">
-          {galleryProjects.map(project => (
+          {latestProjects.map(project => (
             
             <div 
               key={project.title} 

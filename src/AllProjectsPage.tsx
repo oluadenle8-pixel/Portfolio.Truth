@@ -72,6 +72,14 @@ const allProjectsData = [
     category: 'Mobile Apps',
     desc: 'A comprehensive multi-sided educational platform design focused entirely on core human-computer interaction principles.',
     link: '',
+  },
+  {
+    title: 'Zoom In',
+    img: M1, 
+    accentColor: '#2E6270',
+    category: 'Motion Design',
+    desc: 'An infinitely scalable recursive zoom animation utilizing nested masking in Figma.',
+    link: 'https://www.figma.com/proto/f0DlacSkfwLCAGJvLF0miY/Zoom-In-Idea?node-id=5-55&t=PGk5fQHD2DsEWDZU-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A8',
   }
 ];
 // ============================================================================
