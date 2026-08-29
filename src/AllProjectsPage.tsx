@@ -4,8 +4,9 @@ import logoImg from '@/imports/Vector__4_.png';
 import { allProjectsData } from './projectsData';
 
 export default function AllProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const categories = ['All', 'Mobile Apps', 'Web Platforms', 'Game Design', 'Motion Design', 'Academic'];
+  const [activeFilter, setActiveFilter] = useState('All');90
+  // Dynamically extract unique categories from your projects array + 'All'
+  const categories = ['All', ...Array.from(new Set(allProjectsData.map(project => project.category)))];
 
   const filteredProjects = activeFilter === 'All' 
     ? allProjectsData 
