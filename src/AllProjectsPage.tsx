@@ -4,6 +4,7 @@ import proj1 from '@/imports/Project_1.png';
 import proj2 from '@/imports/Project_2.png';
 import proj3 from '@/imports/Project_3.png';
 import logoImg from '@/imports/Vector__4_.png';
+import M1 from '@/imports/M1.png';
 
 // ============================================================================
 // 📁 PROJECT DATABASE (Added 'link' property to each object)
