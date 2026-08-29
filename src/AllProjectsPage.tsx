@@ -11,6 +11,14 @@ import M1 from '@/imports/M1.png';
 // ============================================================================
 const allProjectsData = [
   {
+    title: 'Zoom In',
+    img: M1, 
+    accentColor: '#2E6270',
+    category: 'Motion Design',
+    desc: 'An infinitely scalable recursive zoom animation utilizing nested masking in Figma.',
+    link: 'https://www.figma.com/proto/f0DlacSkfwLCAGJvLF0miY/Zoom-In-Idea?node-id=5-55&t=PGk5fQHD2DsEWDZU-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A8',
+  },
+  {
     title: 'Character Design',
     img: proj1,
     accentColor: '#EF951C',
@@ -33,55 +41,8 @@ const allProjectsData = [
     category: 'Mobile Apps',
     desc: 'An e-commerce app redesign for Nike focusing on product showcase, clean navigation, and a premium brand experience for sneaker enthusiasts.',
     link: 'https://www.figma.com/proto/21bc6UgNRg1Ok5Bd9QoN7h/Nike-Airforce-Design?node-id=155-71&t=BZsTE9ifCwqZGuWB-0&scaling=scale-down&content-scaling=fixed&page-id=155%3A4',
-  },
-  {
-    title: 'CookIt',
-    img: proj1, 
-    accentColor: '#FE6D44',
-    category: 'Web Platforms',
-    desc: 'A hybrid retrieval and generative machine learning system architecture designed to deliver highly personalized recipes with offline backup support.',
-    link: '',
-  },
-  {
-    title: 'HapticNav',
-    img: proj2, 
-    accentColor: '#3B6EA0',
-    category: 'Academic',
-    desc: 'An academic project featuring a voice-guided navigation interface specifically designed to enhance accessibility and user confidence.',
-    link: '',
-  },
-  {
-    title: 'Hostel Pal',
-    img: proj3, 
-    accentColor: '#EF951C',
-    category: 'Web Platforms',
-    desc: 'A mobile web app landing page and platform for university accommodation management, featuring optimized user flows and clean pricing structures.',
-    link: '',
-  },
-  {
-    title: 'SDG Rush',
-    img: proj1, 
-    accentColor: '#542CA9',
-    category: 'Game Design',
-    desc: 'A mission-driven mobile game project focusing on an engaging user interface and dynamic experience design.',
-    link: '',
-  },
-  {
-    title: 'HCI Insight',
-    img: proj2, 
-    accentColor: '#C1E7FF',
-    category: 'Mobile Apps',
-    desc: 'A comprehensive multi-sided educational platform design focused entirely on core human-computer interaction principles.',
-    link: '',
-  },
-  {
-    title: 'Zoom In',
-    img: M1, 
-    accentColor: '#2E6270',
-    category: 'Motion Design',
-    desc: 'An infinitely scalable recursive zoom animation utilizing nested masking in Figma.',
-    link: 'https://www.figma.com/proto/f0DlacSkfwLCAGJvLF0miY/Zoom-In-Idea?node-id=5-55&t=PGk5fQHD2DsEWDZU-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A8',
   }
+  
 ];
 // ============================================================================
 
