@@ -12,7 +12,7 @@ import iconUX from '@/imports/Vector__5_.png'
 import projDropDown from '@/imports/Project_Drop_Down.png'
 import vector10 from '@/imports/Vector 10.png'
 import { allProjectsData } from './projectsData'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import AllProjectsPage from './AllProjectsPage'
 import resumePdf from '@/imports/resume.pdf'
 
