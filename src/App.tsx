@@ -15,6 +15,7 @@ import { allProjectsData } from './projectsData'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import AllProjectsPage from './AllProjectsPage'
 import resumePdf from '@/imports/resume.pdf'
+import LandingPage from './LandingPage';
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -726,7 +727,13 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Landing/Links page is now the very first page people see */}
+        <Route path="/" element={<LandingPage />} />
+        
+        {/* Main Portfolio Home Page */}
+        <Route path="/portfolio" element={<Home />} />
+        
+        {/* Archive page */}
         <Route path="/all-projects" element={<AllProjectsPage />} />
       </Routes>
     </Router>
