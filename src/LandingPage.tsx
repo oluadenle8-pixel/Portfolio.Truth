@@ -8,24 +8,24 @@ export default function LandingPage() {
   }, []);
 
   const socialLinks = [
-    { name: 'Portfolio Website', url: '/portfolio', internal: true, color: '#EF951C' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/truthdottt', internal: false, color: '#0A66C2' },
-    { name: 'Instagram', url: 'https://instagram.com', internal: false, color: '#E4405F' },
-    { name: 'Substack', url: 'https://substack.com', internal: false, color: '#FF6719' },
+    { name: 'Portfolio Website', url: '/portfolio', internal: true },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/truthdottt', internal: false },
+    { name: 'Instagram', url: 'https://instagram.com', internal: false },
+    { name: 'Substack', url: 'https://substack.com', internal: false },
   ];
 
   return (
     <main className="min-h-screen w-full flex flex-col items-center justify-between px-6 py-12" style={{ backgroundColor: '#131C23' }}>
       
-      {/* Spacer to balance vertical centering */}
+      {/* Spacer */}
       <div className="h-10" />
 
       {/* Center Content Area */}
       <div className="w-full max-w-[480px] flex flex-col items-center text-center animate-fade-in">
         
-        {/* Logo */}
-        <div className="mb-8 hover:scale-105 transition-transform">
-          <img src={logoImg} alt="Truth logo" className="h-[70px] w-auto object-contain" />
+        {/* Logo Container with White Circle Background */}
+        <div className="w-[110px] h-[110px] bg-white rounded-full flex items-center justify-center shadow-xl mb-6 hover:scale-105 transition-transform">
+          <img src={logoImg} alt="Truth logo" className="h-[55px] w-auto object-contain" />
         </div>
 
         {/* Alias / Subtitle */}
@@ -36,19 +36,20 @@ export default function LandingPage() {
           UI/UX Designer & Creative Developer
         </p>
 
-        {/* Social & Portfolio Buttons List */}
+        {/* Social & Portfolio Buttons List with Orange Hover Effect */}
         <div className="w-full flex flex-col gap-4">
           {socialLinks.map((link, index) => (
             link.internal ? (
               <Link
                 key={index}
                 to={link.url}
-                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
+                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-[#EF951C] flex items-center justify-center shadow-lg"
                 style={{
-                  backgroundColor: link.color,
+                  backgroundColor: '#1d2a35',
                   color: '#ffffff',
                   fontFamily: 'Poppins, sans-serif',
-                  fontSize: '18px'
+                  fontSize: '18px',
+                  border: '1px solid #334155'
                 }}
               >
                 {link.name}
@@ -59,12 +60,13 @@ export default function LandingPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg border border-[#334155]"
+                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-[#EF951C] flex items-center justify-center shadow-lg"
                 style={{
                   backgroundColor: '#1d2a35',
                   color: '#ffffff',
                   fontFamily: 'Poppins, sans-serif',
-                  fontSize: '18px'
+                  fontSize: '18px',
+                  border: '1px solid #334155'
                 }}
               >
                 {link.name}
