@@ -576,14 +576,27 @@ function ResumeSection() {
 }
 
 function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-    setForm({ name: '', email: '', subject: '', message: '' })
+    const formData = new FormData(e.currentTarget)
+    
+    // Replace with your actual Access Key from Web3Forms
+    formData.append("access_key", "c173aacb-5544-4425-9716-61df34b88b4f")
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    })
+
+    const data = await response.json()
+
+    if (data.success) {
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 4000)
+      e.currentTarget.reset()
+    }
   }
 
   const baseInputClasses = "w-full bg-white text-[#131C23] text-sm outline-none transition-colors duration-200 border-2 border-transparent focus:border-[#EF951C]"
@@ -591,6 +604,8 @@ function ContactSection() {
   return (
     <section id="contact" style={{ backgroundColor: '#e2ebf3' }} className="pt-20 pb-24 relative">
       <div className="max-w-2xl mx-auto px-6">
+        
+        {/* Header Area */}
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="inline-flex flex-col items-center lg:items-start">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
@@ -606,19 +621,20 @@ function ContactSection() {
           </div>
         </div>
 
+        {/* Emphatic Quote */}
         <p className="text-center mb-12 mx-auto" 
            style={{ color: '#515151', fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '19px', maxWidth: '600px' }}>
           "I don't just design screens; I solve problems with brutal honesty and empathetic logic."
         </p>
 
+        {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-[600px] mx-auto">
           <div>
             <label className="block text-xs md:text-sm mb-2 ml-2" style={{ color: '#515151', fontFamily: 'Poppins, sans-serif' }}>Your Name</label>
             <input
               type="text"
+              name="name"
               placeholder="Full Name"
-              value={form.name}
-              onChange={e => setForm({ ...form, name: e.target.value })}
               style={{ padding: '14px 24px', fontFamily: 'Poppins, sans-serif' }}
               className={`${baseInputClasses} rounded-full`}
               required
@@ -628,9 +644,8 @@ function ContactSection() {
             <label className="block text-xs md:text-sm mb-2 ml-2" style={{ color: '#515151', fontFamily: 'Poppins, sans-serif' }}>Your Email</label>
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
-              value={form.email}
-              onChange={e => setForm({ ...form, email: e.target.value })}
               style={{ padding: '14px 24px', fontFamily: 'Poppins, sans-serif' }}
               className={`${baseInputClasses} rounded-full`}
               required
@@ -640,9 +655,8 @@ function ContactSection() {
             <label className="block text-xs md:text-sm mb-2 ml-2" style={{ color: '#515151', fontFamily: 'Poppins, sans-serif' }}>Subject</label>
             <input
               type="text"
+              name="subject"
               placeholder="Subject"
-              value={form.subject}
-              onChange={e => setForm({ ...form, subject: e.target.value })}
               style={{ padding: '14px 24px', fontFamily: 'Poppins, sans-serif' }}
               className={`${baseInputClasses} rounded-full`}
               required
@@ -651,9 +665,8 @@ function ContactSection() {
           <div>
             <label className="block text-xs md:text-sm mb-2 ml-2" style={{ color: '#515151', fontFamily: 'Poppins, sans-serif' }}>Message</label>
             <textarea
+              name="message"
               placeholder="Message..."
-              value={form.message}
-              onChange={e => setForm({ ...form, message: e.target.value })}
               rows={6}
               style={{ padding: '16px 24px', fontFamily: 'Poppins, sans-serif', resize: 'vertical' }}
               className={`${baseInputClasses} rounded-[24px]`}
