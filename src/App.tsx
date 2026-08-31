@@ -580,10 +580,11 @@ function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    const formElement = e.currentTarget
+    const formData = new FormData(formElement)
     
     // Replace with your actual Access Key from Web3Forms
-    formData.append("access_key", "c173aacb-5544-4425-9716-61df34b88b4f")
+    formData.append("access_key", "YOUR-WEB3FORMS-ACCESS-KEY-HERE")
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -595,7 +596,7 @@ function ContactSection() {
     if (data.success) {
       setSubmitted(true)
       setTimeout(() => setSubmitted(false), 4000)
-      e.currentTarget.reset()
+      formElement.reset() // Clears all input fields automatically upon success
     }
   }
 
