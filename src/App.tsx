@@ -14,6 +14,7 @@ import vector10 from '@/imports/Vector 10.png'
 import { allProjectsData } from './projectsData'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AllProjectsPage from './AllProjectsPage'
+import resumePdf from '@/imports/resume.pdf'
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -498,6 +499,8 @@ function ResumeSection() {
   return (
     <section id="resume" style={{ backgroundColor: '#ffffff' }} className="pt-24 pb-20 relative">
       <div className="text-center mx-auto px-6" style={{ maxWidth: '800px' }}>
+        
+        {/* Header */}
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="inline-flex flex-col items-center lg:items-start">
             <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '50px', lineHeight: 1 }} className="mb-2">
@@ -513,6 +516,7 @@ function ResumeSection() {
           </div>
         </div>
 
+        {/* Text */}
         <p className="text-center mx-auto mb-10 px-4" 
            style={{ 
              color: '#515151', 
@@ -525,8 +529,15 @@ function ResumeSection() {
           I combine technical Computer Science foundations with a deep focus on empathetic design. Grab a copy of my resume to see my full experience and technical stack.
         </p>
         
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
-          <button className="rounded-full transition-all hover:opacity-85 hover:scale-105 flex items-center justify-center w-full sm:w-[180px]"
+          
+          {/* View Resume Button (Opens in a new tab) */}
+          <a 
+            href={resumePdf} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="rounded-full transition-all hover:opacity-85 hover:scale-105 flex items-center justify-center w-full sm:w-[180px]"
             style={{ 
               height: '50px',
               backgroundColor: '#131C23', 
@@ -534,11 +545,16 @@ function ResumeSection() {
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 500,
               fontSize: '20px'
-            }}>
+            }}
+          >
             View Resume
-          </button>
+          </a>
           
-          <button className="rounded-full border-[1.5px] transition-all hover:bg-[#fff8f0] hover:scale-105 flex items-center justify-center w-full sm:w-[180px]"
+          {/* Download Button (Forces the file download) */}
+          <a 
+            href={resumePdf} 
+            download="Truth_Resume.pdf"
+            className="rounded-full border-[1.5px] transition-all hover:bg-[#fff8f0] hover:scale-105 flex items-center justify-center w-full sm:w-[180px]"
             style={{ 
               height: '50px',
               borderColor: '#EF951C', 
@@ -547,10 +563,13 @@ function ResumeSection() {
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 500,
               fontSize: '20px'
-            }}>
+            }}
+          >
             Download
-          </button>
+          </a>
+
         </div>
+        
       </div>
     </section>
   )
