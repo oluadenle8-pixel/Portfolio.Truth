@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '@/imports/Vector__4_.png';
 
 export default function LandingPage() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,21 +38,26 @@ export default function LandingPage() {
           UI/UX Designer & Creative Developer
         </p>
 
-        {/* Social & Portfolio Buttons List with Orange Hover Effect */}
+        {/* Social & Portfolio Buttons List */}
         <div className="w-full flex flex-col gap-4">
-          {socialLinks.map((link, index) => (
-            link.internal ? (
+          {socialLinks.map((link, index) => {
+            const isHovered = hoveredIndex === index;
+            const buttonStyle = {
+              backgroundColor: isHovered ? '#EF951C' : '#1d2a35',
+              color: '#ffffff',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '18px',
+              border: isHovered ? '1px solid #EF951C' : '1px solid #334155',
+            };
+
+            return link.internal ? (
               <Link
                 key={index}
                 to={link.url}
-                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-[#EF951C] flex items-center justify-center shadow-lg"
-                style={{
-                  backgroundColor: '#1d2a35',
-                  color: '#ffffff',
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: '18px',
-                  border: '1px solid #334155'
-                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
+                style={buttonStyle}
               >
                 {link.name}
               </Link>
@@ -60,19 +67,15 @@ export default function LandingPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-[#EF951C] flex items-center justify-center shadow-lg"
-                style={{
-                  backgroundColor: '#1d2a35',
-                  color: '#ffffff',
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: '18px',
-                  border: '1px solid #334155'
-                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="w-full py-4 px-6 rounded-full font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
+                style={buttonStyle}
               >
                 {link.name}
               </a>
-            )
-          ))}
+            );
+          })}
         </div>
 
       </div>
