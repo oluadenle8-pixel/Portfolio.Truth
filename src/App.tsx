@@ -113,7 +113,7 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
-            <a href="#projects-gallery" className="w-full sm:w-auto flex justify-center">
+            <Link to="/all-projects" className="w-full sm:w-auto flex justify-center">
               <button className="rounded-full transition-all hover:opacity-85 hover:scale-105 flex items-center justify-center w-full sm:w-[185px]"
                 style={{ 
                   height: '52px',
@@ -123,9 +123,9 @@ function HeroSection() {
                   fontWeight: 500,
                   fontSize: '19px'
                 }}>
-                Portfolio
+                Projects
               </button>
-            </a>
+            </Link>
             <a href="#contact" className="w-full sm:w-auto flex justify-center">
               <button className="rounded-full border-[1.5px] transition-all hover:bg-[#fff8f0] hover:scale-105 flex items-center justify-center w-full sm:w-[185px]"
                 style={{ 
