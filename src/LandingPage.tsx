@@ -12,8 +12,8 @@ export default function LandingPage() {
   const socialLinks = [
     { name: 'Portfolio Website', url: '/portfolio', internal: true },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/truthdottt', internal: false },
-    { name: 'Instagram', url: 'https://instagram.com', internal: false },
-    { name: 'Substack', url: 'https://substack.com', internal: false },
+    { name: 'Instagram', url: 'https://instagram.com/truthdottt', internal: false },
+    { name: 'Substack', url: 'https://substack.com/@truthdottt', internal: false },
   ];
 
   return (
